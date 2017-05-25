@@ -1,12 +1,11 @@
 Experimental data for exploring forms found on GOV.UK
 
-<a href="https://www.flickr.com/photos/psd/34781307466/in/dateposted-ff/" title="government-form-explorer"><img src="https://c1.staticflickr.com/5/4160/34781307466_ef8d5f5574.jpg" alt="government-form-explorer"></a>
+<a href="https://www.flickr.com/photos/psd/34781307466/in/dateposted-ff/" title="government-form-explorer"><img src="https://c1.staticflickr.com/5/4160/34781307466_ef8d5f5574_c.jpg" alt="government-form-explorer"></a>
 
 * [page](data/page.tsv) — GOV.UK pages with [form content](https://docs.publishing.service.gov.uk/document-types/form.html)
 * [attachment](data/attachment.tsv) — GOV.UK attachments associated with form pages
 * [organisation](data/page.tsv) — organisations responsible for forms, data assembled from various registers
-* [slug](data/slug.tsv)
-
+* [slug](data/slug.tsv) — map to translate a GOV.UK slug to an organisation
 * [form](data/form.tsv) — forms, as understood by users
 * [task](data/task.tsv) — user tasks, and the people who design and process forms used to complete them
 * [question](data/question.tsv) — questions found in forms
