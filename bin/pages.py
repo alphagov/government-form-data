@@ -39,7 +39,7 @@ for line in sys.stdin:
 
     row['timestamp'] = r['title']
     row['url'] = 'https://www.gov.uk' +r['_id']
-    row['organisations'] = ';'.join(organisations(r['organisations']))
+    row['organisations'] = ';'.join(sorted(organisations(r['organisations'])))
 
     print(sep.join([row[field] for field in fields]))
 
