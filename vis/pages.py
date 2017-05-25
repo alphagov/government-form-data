@@ -9,7 +9,6 @@ import csv
 import json
 
 sep = '\t'
-
 def load(name, key=None):
     rows = {}
     if not key:
@@ -18,52 +17,50 @@ def load(name, key=None):
         rows[row[key]] = row
     return rows
 
-
-def govuk_name(govuk):
-    org = govuks[govuk]['government-organisation']
-
-    if org in government_organisations:
-        return government_organisations[org]['name']
-
-    # courts and tribunals are in another register, TBD ..
-    return govuk
-
-
 pages = load('page')
+tasks = load('task')
 attachments = load('attachment')
-files = load('file', 'attachment')
-government_organisations = load('government-organisation')
-govuks = load('govuk')
 
 #
-#  index pages per-GOV.UK publisher
+#  tag sampled pages
 #
-for page, p in pages.items():
-    for govuk in p['govuks'].split(';'):
-        govuks[govuk]['pages'] = govuks[govuk].get('pages', []) + [page]
+for task, t in tasks.items():
+    pages[t['page']]['task'] = task
 
 #
 #  index attachments per-page
 #
 for attachment, a in attachments.items():
-    for page in a['pages'].split(';'):
-        pages[page]['attachments'] = pages[page].get('attachments', []) + [attachment]
-
+    page = a['page']
+    p = pages[page]
+    p['attachments'] = p.get('attachments', []) + [attachment]
+    p['size'] = p.get('size', 0) + int(a['size'])
 
 #
-#  make treemap json
+#  index updates per-page
 #
-tree = {
-    'name': 'pages',
-    'children': []
-}
+for h in csv.DictReader(open('data/history.tsv'), delimiter=sep):
+    p = pages[h['page']]
+    p['history'] = p.get('history', []) + [h['timestamp']]
 
-for govuk in sorted(govuks):
-    if 'pages' in govuks[govuk]:
-        node = {
-            'name': govuk_name(govuk),
-            'size': len(govuks[govuk]['pages'])
-        }
-        tree['children'].append(node)
 
-print(json.dumps(tree, sort_keys=True, indent=2))
+rows = []
+for page, p in pages.items():
+
+    row = {}
+    row['page'] = page
+    row['task'] = p.get('task', '')
+    row['sample'] = 'sample' if 'task' in p else 'not'
+    row['Number of organisations'] = len(p['organisations'].split(';')) /100
+    row['Number of attachments'] = len(p.get('attachments', [])) /100
+    row['Total size'] = p.get('size', 0) / (10*1024*1024)
+    row['Number of updates'] = len(p.get('history', [])) / 100
+
+    rows.append(row)
+
+
+fields = ['page', 'task', 'sample', 'Number of organisations', 'Number of attachments', 'Total size', 'Number of updates']
+
+print(sep.join(fields))
+for row in sorted(rows, key=lambda k: k['sample']):
+    print(sep.join([str(row[field]) for field in fields]))

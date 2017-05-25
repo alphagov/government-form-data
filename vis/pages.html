@@ -22,7 +22,6 @@ svg {
 
 .cell text {
   font-weight: bold;
-  text-transform: capitalize;
 }
 
 .frame {
@@ -40,7 +39,7 @@ circle {
 <script>
 
 var width = 960,
-    size = 230,
+    size = 200,
     padding = 20;
 
 var x = d3.scale.linear()
@@ -64,12 +63,13 @@ var color = d3.scale.ordinal()
   .domain(["not", "sample"])
   .range(["#BFC1C3", "#B10E1E"]);
 
+var info = ['page', 'task', 'sample']
 
-d3.tsv("pages.tsv?d", function(error, data) {
+d3.tsv("pages.tsv", function(error, data) {
   if (error) throw error;
 
   var domainByTrait = {},
-      traits = d3.keys(data[0]).filter(function(d) { return d !== "sample"; }),
+      traits = d3.keys(data[0]).filter(function(d) { return info.indexOf(d) < 0; }),
       n = traits.length;
 
   traits.forEach(function(trait) {
@@ -85,11 +85,12 @@ d3.tsv("pages.tsv?d", function(error, data) {
     .append("g")
       .attr("transform", "translate(" + padding + "," + padding / 2 + ")");
 
+/*
   svg.selectAll(".x.axis")
       .data(traits)
     .enter().append("g")
       .attr("class", "x axis")
-      .attr("transform", function(d, i) { return "translate(" + (n - i - 1) * size + ",0)"; })
+      .attr("transform", function(d, i) { return "translate(" + i * size + ",0)"; })
       .each(function(d) { x.domain(domainByTrait[d]); d3.select(this).call(xAxis); });
 
   svg.selectAll(".y.axis")
@@ -98,6 +99,7 @@ d3.tsv("pages.tsv?d", function(error, data) {
       .attr("class", "y axis")
       .attr("transform", function(d, i) { return "translate(0," + i * size + ")"; })
       .each(function(d) { y.domain(domainByTrait[d]); d3.select(this).call(yAxis); });
+*/
 
   var cell = svg.selectAll(".cell")
       .data(cross(traits, traits))
