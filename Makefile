@@ -10,6 +10,7 @@ TARGET_DATA=\
 	data/page.tsv\
 	data/history.tsv\
 	data/organisation.tsv\
+	data/download.tsv\
 	data/attachment.tsv
 
 DATA=\
@@ -32,13 +33,16 @@ server: $(INDEXES)
 #
 data/page.tsv:	bin/pages.py cache/govuk-pages.jsonl data/slug.tsv
 	@mkdir -p cache/page
-	bin/pages.py < cache/govuk-pages.jsonl > $@
+	python3 bin/pages.py < cache/govuk-pages.jsonl > $@
 
 data/attachment.tsv:	bin/attachments.py data/page.tsv
 	python3 bin/attachments.py < data/page.tsv > $@
 
 data/history.tsv:	bin/history.py data/page.tsv
 	python3 bin/history.py < data/page.tsv > $@
+
+data/download.tsv:	bin/downloads.py data/attachment.tsv
+	zcat cache/downloads.gz | python3 bin/downloads.py > $@
 
 #
 #  forms pages from GOV.UK search API

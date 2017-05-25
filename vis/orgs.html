@@ -22,6 +22,8 @@ svg {
   <label><input type="radio" name="mode" value="sumByPages" checked> Number of pages</label>
   <label><input type="radio" name="mode" value="sumByAttachments"> Number of attachments</label>
   <label><input type="radio" name="mode" value="sumBySize"> Size of attachments</label>
+  <label><input type="radio" name="mode" value="sumByUpdates"> Number of updates</label>
+  <label><input type="radio" name="mode" value="sumByDownloads"> Number of downloads</label>
 </form>
 </div>
 <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -41,7 +43,7 @@ var treemap = d3.treemap()
     .round(true)
     .paddingInner(1);
 
-d3.json("orgs.json", function(error, data) {
+d3.json("orgs.json?x", function(error, data) {
   if (error) throw error;
 
   var root = d3.hierarchy(data)
@@ -81,10 +83,12 @@ d3.json("orgs.json", function(error, data) {
         return d.data.id + "\n" +
           format(d.data.pages) + " pages\n" +
           format(d.data.attachments) + " attachments\n" +
-          format(d.data.size) + " bytes"; });
+          format(d.data.size) + " bytes\n" +
+          format(d.data.updates) + " updates\n" +
+          format(d.data.downloads) + " downloads"; });
 
   d3.selectAll("input")
-      .data([sumByPages, sumByAttachments, sumBySize], function(d) { return d ? d.name : this.value; })
+      .data([sumByPages, sumByAttachments, sumBySize, sumByUpdates, sumByDownloads], function(d) { return d ? d.name : this.value; })
       .on("change", changed);
 
   function changed(sum) {
@@ -109,6 +113,14 @@ function sumByAttachments(d) {
 
 function sumBySize(d) {
   return d.size;
+}
+
+function sumByUpdates(d) {
+  return d.updates;
+}
+
+function sumByDownloads(d) {
+  return d.downloads;
 }
 
 </script>

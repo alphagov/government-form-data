@@ -43,6 +43,14 @@ for h in csv.DictReader(open('data/history.tsv'), delimiter=sep):
     p = pages[h['page']]
     p['history'] = p.get('history', []) + [h['timestamp']]
 
+#
+#  index downloads
+#
+for h in csv.DictReader(open('data/download.tsv'), delimiter=sep):
+    a = attachments[h['attachment']]
+    p = pages[a['page']]
+    p['downloads'] = p.get('downloads', 0) + int(h['count']) /10000
+
 
 rows = []
 for page, p in pages.items():
@@ -55,12 +63,13 @@ for page, p in pages.items():
     row['Number of attachments'] = len(p.get('attachments', [])) /100
     row['Total size'] = p.get('size', 0) / (10*1024*1024)
     row['Number of updates'] = len(p.get('history', [])) / 100
+    row['Number of downloads'] = "{:.8f}".format(p.get('downloads', 0) / 10000)
 
     rows.append(row)
 
 
-fields = ['page', 'task', 'sample', 'Number of organisations', 'Number of attachments', 'Total size', 'Number of updates']
+fields = ['page', 'task', 'sample', 'Number of organisations', 'Number of attachments', 'Total size', 'Number of updates', 'Number of downloads']
 
 print(sep.join(fields))
 for row in sorted(rows, key=lambda k: k['sample']):
-    print(sep.join([str(row[field]) for field in fields]))
+    print(sep.join([str(row[field]).strip() for field in fields]))

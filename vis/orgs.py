@@ -40,6 +40,23 @@ for attachment, a in attachments.items():
         organisations[organisation]['attachments'] = organisations[organisation].get('attachments', []) + [attachment]
         organisations[organisation]['size'] = organisations[organisation].get('size', 0) + int(a['size'])
 
+#
+#  index updates per-page
+#
+for h in csv.DictReader(open('data/history.tsv'), delimiter=sep):
+    p = pages[h['page']]
+    for organisation in p['organisations'].split(';'):
+        organisations[organisation]['updates'] = organisations[organisation].get('updates', 0) + 1
+
+#
+#  index downloads per-attachment
+#
+for h in csv.DictReader(open('data/download.tsv'), delimiter=sep):
+    a = attachments[h['attachment']]
+    p = pages[a['page']]
+    for organisation in p['organisations'].split(';'):
+        organisations[organisation]['downloads'] = organisations[organisation].get('downloads', 1) + int(h['count'])
+
 
 #
 #  make treemap json
@@ -56,7 +73,9 @@ for organisation in sorted(organisations):
             'name': org['name'],
             'pages': len(org['pages']),
             'attachments': len(org.get('attachments', [])),
-            'size': org.get('size', 0)
+            'size': org.get('size', 0),
+            'updates': org.get('updates', 0),
+            'downloads': org.get('downloads', 0)
         }
         tree['children'].append(node)
 
