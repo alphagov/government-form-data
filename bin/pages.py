@@ -7,6 +7,7 @@ import csv
 import requests
 
 sep = '\t'
+list_sep = ';'
 
 #
 #  load GOV.UK slug to organisation map
@@ -24,9 +25,6 @@ def organisations(organisations):
 
 
 fields = ['page', 'name', 'url', 'organisations']
-
-sep = '\t'
-list_sep = ';'
 
 print(sep.join(fields))
 
