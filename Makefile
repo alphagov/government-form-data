@@ -8,6 +8,7 @@ SOURCE_DATA=\
 # data derived from GOV.UK and registers
 TARGET_DATA=\
 	data/page.tsv\
+	data/history.tsv\
 	data/organisation.tsv\
 	data/attachment.tsv
 
@@ -18,8 +19,8 @@ DATA=\
 
 # data made for visualisations
 INDEXES=\
-	vis/orgs.json
-#	vis/pages.json
+	vis/orgs.json\
+	vis/pages.tsv
 
 all: $(DATA) $(INDEXES)
 
@@ -36,6 +37,9 @@ data/page.tsv:	bin/pages.py cache/govuk-pages.jsonl data/slug.tsv
 data/attachment.tsv:	bin/attachments.py data/page.tsv
 	python3 bin/attachments.py < data/page.tsv > $@
 
+data/history.tsv:	bin/history.py data/page.tsv
+	python3 bin/history.py < data/page.tsv > $@
+
 #
 #  forms pages from GOV.UK search API
 #
@@ -45,7 +49,7 @@ cache/govuk-pages.jsonl:	bin/govuk-pages.py
 #
 #  visualisation data
 #
-vis/pages.json:	$(DATA) vis/pages.py
+vis/pages.tsv:	$(DATA) vis/pages.py
 	python3 vis/pages.py > $@
 
 vis/orgs.json:	$(DATA) vis/orgs.py
