@@ -61,7 +61,7 @@ for page, p in pages.items():
     row['sample'] = 'sample' if 'task' in p else 'not'
     row['Number of organisations'] = len(p['organisations'].split(';')) /100
     row['Number of attachments'] = len(p.get('attachments', [])) /100
-    row['Total size'] = p.get('size', 0) / (10*1024*1024)
+    row['Total size'] = "{:.8f}".format(p.get('size', 0) / (10*1024*1024))
     row['Number of updates'] = len(p.get('history', [])) / 100
     row['Number of downloads'] = "{:.8f}".format(p.get('downloads', 0) / 10000)
 
@@ -71,5 +71,5 @@ for page, p in pages.items():
 fields = ['page', 'task', 'sample', 'Number of organisations', 'Number of attachments', 'Total size', 'Number of updates', 'Number of downloads']
 
 print(sep.join(fields))
-for row in sorted(rows, key=lambda k: k['sample']):
+for row in sorted(rows, key=lambda k: k['sample']+k['page']):
     print(sep.join([str(row[field]).strip() for field in fields]))
