@@ -35,6 +35,7 @@ for attachment, a in attachments.items():
     p = pages[page]
     p['attachments'] = p.get('attachments', []) + [attachment]
     p['size'] = p.get('size', 0) + int(a['size'])
+    p['largest-attachment'] = max(p.get('largest-attachment', 0), int(a['size']))
 
 #
 #  index updates per-page
@@ -61,6 +62,7 @@ for page, p in pages.items():
     row['sample'] = 'sample' if 'task' in p else 'not'
     row['Number of organisations'] = len(p['organisations'].split(';')) /100
     row['Number of attachments'] = len(p.get('attachments', [])) /100
+    row['Largest attachment'] = "{:.8f}".format(p.get('largest-attachment', 0) / (10*1024*1024))
     row['Total size'] = "{:.8f}".format(p.get('size', 0) / (10*1024*1024))
     row['Number of updates'] = len(p.get('history', [])) / 100
     row['Number of downloads'] = "{:.8f}".format(p.get('downloads', 0) / 10000)
@@ -68,7 +70,7 @@ for page, p in pages.items():
     rows.append(row)
 
 
-fields = ['page', 'task', 'sample', 'Number of organisations', 'Number of attachments', 'Total size', 'Number of updates', 'Number of downloads']
+fields = ['page', 'task', 'sample', 'Number of organisations', 'Number of attachments', 'Largest attachment', 'Total size', 'Number of updates', 'Number of downloads']
 
 print(sep.join(fields))
 for row in sorted(rows, key=lambda k: k['sample']+k['page']):
