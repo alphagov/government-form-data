@@ -66,4 +66,4 @@ clobber:
 clean:	clobber
 	-rm -rf ./cache
 	-find . -name '*.pyc' | xargs rm -f
-	-find . -name '__pycache__" | xargs rm -rf
+	-find . -name '__pycache__' | xargs rm -rf
