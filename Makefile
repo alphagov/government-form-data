@@ -29,8 +29,11 @@ server: $(INDEXES)
 	python3 -m http.server
 
 #
-#  build explorer data
+#  build target data
 #
+data/organisation.tsv:	bin/organisations.py
+	python3 bin/organisations.py > $@
+
 data/page.tsv:	bin/pages.py cache/govuk-pages.jsonl data/slug.tsv
 	@mkdir -p cache/page
 	python3 bin/pages.py < cache/govuk-pages.jsonl > $@
@@ -59,9 +62,17 @@ vis/pages.tsv:	$(DATA) vis/pages.py
 vis/orgs.json:	$(DATA) vis/orgs.py
 	python3 vis/orgs.py > $@
 
+#
+#  python
+#
+init::
+	pip3 install -r requirements.txt
+
+flake8:
+	flake8
 
 clobber:
-	rm -f $(TARGET_DATA)
+	rm -f $(TARGET_DATA) $(INDEXES)
 
 clean:	clobber
 	-rm -rf ./cache
