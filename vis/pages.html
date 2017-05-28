@@ -35,31 +35,23 @@ circle {
 
 </style>
 <body>
-<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="d3.v4.min.js"></script>
 <script>
 
 var width = 960,
     size = 200,
     padding = 20;
 
-var x = d3.scale.linear()
+var x = d3.scaleLinear()
     .range([padding / 2, size - padding / 2]);
 
-var y = d3.scale.linear()
+var y = d3.scaleLinear()
     .range([size - padding / 2, padding / 2]);
 
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom")
-    .ticks(6);
+var xAxis = d3.axisBottom(x);
+var yAxis = d3.axisLeft(y);
 
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    .ticks(6);
-
-var color = d3.scale.category10();
-var color = d3.scale.ordinal()
+var color = d3.scaleOrdinal()
   .domain(["not", "sample"])
   .range(["#BFC1C3", "#B10E1E"]);
 
@@ -84,22 +76,6 @@ d3.tsv("pages.tsv", function(error, data) {
       .attr("height", size * n + padding)
     .append("g")
       .attr("transform", "translate(" + padding + "," + padding / 2 + ")");
-
-/*
-  svg.selectAll(".x.axis")
-      .data(traits)
-    .enter().append("g")
-      .attr("class", "x axis")
-      .attr("transform", function(d, i) { return "translate(" + i * size + ",0)"; })
-      .each(function(d) { x.domain(domainByTrait[d]); d3.select(this).call(xAxis); });
-
-  svg.selectAll(".y.axis")
-      .data(traits)
-    .enter().append("g")
-      .attr("class", "y axis")
-      .attr("transform", function(d, i) { return "translate(0," + i * size + ")"; })
-      .each(function(d) { y.domain(domainByTrait[d]); d3.select(this).call(yAxis); });
-*/
 
   var cell = svg.selectAll(".cell")
       .data(cross(traits))
