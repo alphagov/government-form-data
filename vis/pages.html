@@ -102,7 +102,7 @@ d3.tsv("pages.tsv", function(error, data) {
 */
 
   var cell = svg.selectAll(".cell")
-      .data(cross(traits, traits))
+      .data(cross(traits))
     .enter().append("g")
       .attr("class", "cell")
       .attr("transform", function(d) { return "translate(" + d.i * size + "," + d.j * size + ")"; })
@@ -143,9 +143,20 @@ d3.tsv("pages.tsv", function(error, data) {
   }
 });
 
-function cross(a, b) {
-  var c = [], n = a.length, m = b.length, i, j;
-  for (i = -1; ++i < n;) for (j = -1; ++j < m;) c.push({x: a[i], i: i, y: b[j], j: j});
+function cross(traits) {
+  var c = [],
+    l = traits.length,
+    i, j;
+
+  for (i = -1; ++i < l;)
+    for (j = i-1; ++j < l;)
+      c.push({
+        x: traits[i],
+        i: i,
+        y: traits[j],
+        j: j
+      });
+
   return c;
 }
 
