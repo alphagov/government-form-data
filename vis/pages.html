@@ -130,11 +130,16 @@ d3.tsv("pages.tsv", function(error, data) {
 
     cell.selectAll("circle")
         .data(data)
-      .enter().append("circle")
-        .attr("cx", function(d) { return x(d[p.x]); })
-        .attr("cy", function(d) { return y(d[p.y]); })
-        .attr("r", 4)
-        .style("fill", function(d) { return color(d.sample); });
+      .enter()
+        .append("svg:a")
+          .attr("xlink:href", function(d) { return "https://www.gov.uk/government/publications/"+d['page']; })
+        .append("circle")
+          .attr("cx", function(d) { return x(d[p.x]); })
+          .attr("cy", function(d) { return y(d[p.y]); })
+          .attr("r", 4)
+        .style("fill", function(d) { return color(d.sample); })
+        .append("title")
+          .text(function(d) { return d['page'] });
   }
 });
 
