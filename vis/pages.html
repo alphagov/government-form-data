@@ -24,6 +24,10 @@ svg {
   font-weight: bold;
 }
 
+.cell text.note {
+  font-weight: normal;
+}
+
 .frame {
   fill: none;
   stroke: #aaa;
@@ -32,15 +36,15 @@ svg {
 circle {
   fill-opacity: .7;
 }
-
 </style>
 <body>
 <script src="d3.v4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/1.12.1/d3-annotation.min.js"></script>
 <script>
 
-var width = 960,
-    size = 200,
-    padding = 20;
+var size = 200,
+    padding = 20,
+    extra = 225;
 
 var x = d3.scaleLinear()
     .range([padding / 2, size - padding / 2]);
@@ -72,7 +76,7 @@ d3.tsv("pages.tsv", function(error, data) {
   yAxis.tickSize(-size * n);
 
   var svg = d3.select("body").append("svg")
-      .attr("width", size * n + padding)
+      .attr("width", (size * n + padding) + extra)
       .attr("height", size * n + padding)
     .append("g")
       .attr("transform", "translate(" + padding + "," + padding / 2 + ")");
@@ -113,10 +117,67 @@ d3.tsv("pages.tsv", function(error, data) {
           .attr("cx", function(d) { return x(d[p.x]); })
           .attr("cy", function(d) { return y(d[p.y]); })
           .attr("r", 4)
+          .attr("id", function(d) { return d['page'] + "-" + p.i + "-" + p.j })
         .style("fill", function(d) { return color(d.sample); })
         .append("title")
           .text(function(d) { return d['page'] });
   }
+
+  [
+    {
+      'id': 'countryside-stewardship-facilitation-fund-claim-a-grant-and-record-progress-0-0',
+      'name': 'Countryside Stewardship facilitation fund: claim a grant and record progress',
+      'units': '4 organisations',
+    },
+    {
+      'id': 'overseas-pensions-payment-mandates-1-1',
+      'name': 'Overseas pensions payment mandates',
+      'units': '84 attachments',
+    },
+    {
+      'id': 'd4-medical-examiner-report-for-a-lorry-or-bus-driving-licence-2-2',
+      'name': 'D4 - Medical examiner report for a lorry or bus driving licence',
+      'units': '20 MB (PDF)',
+    },
+    {
+      'id': 'amateur-vegetables-variety-descriptions-3-3',
+      'name': 'Amateur vegetables: variety descriptions',
+      'units': '55 MB',
+    },
+    {
+      'id': 'service-personnel-and-veterans-agency-spva-pensions-forms-4-4',
+      'name': 'Veterans UK pensions forms',
+      'units': '36 updates',
+    },
+    {
+      'id': 'self-assessment-tax-return-sa100-5-5',
+      'name': 'Self Assessment: Tax Return (SA100)',
+      'units': '4.6 million downloads',
+    },
+  ].forEach(function(d, i) {
+    d3.select('#'+d.id).each(function() {
+      node = d3.select(this.parentNode);
+      node.append("text")
+          .attr("class", "note")
+          .attr("dx", "22em")
+          .attr("dy", "1em")
+          .text(function() { return d.name});
+      node.append("text")
+          .attr("class", "note")
+          .attr("dx", "22em")
+          .attr("dy", "2.25em")
+          .text(function() { return d.units});
+
+      node.append("line")
+          .style("stroke", "#888")
+          .attr("x1", 205)
+          .attr("y1", "1em")
+          .attr("x2", "215")
+          .attr("y2", "1em");
+
+  });
+ });
+
 });
 
 function cross(traits) {
