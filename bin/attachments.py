@@ -12,7 +12,7 @@ import requests
 #  make attachements.tsv from page.tsv and cached files
 #
 
-fields = ['attachment', 'filename', 'page', 'name', 'url', 'size', 'mime', 'magic']
+fields = ['attachment', 'filename', 'page', 'name', 'url', 'ref', 'size', 'mime', 'magic']
 sep = '\t'
 
 attachments = {}
@@ -23,41 +23,45 @@ for page in csv.DictReader(sys.stdin, delimiter=sep):
     dom =  lxml.html.fromstring(open(path).read())
 
     # GOV.UK specific attachment format URL
-    for a in dom.xpath('//a'):
-        url = a.xpath('@href')[0]
+    for section in dom.xpath('//div[@class="attachment-details"]'):
+        for a in section.xpath('.//h2[@class="title"]/a'):
+            url = a.xpath('@href')[0]
+            if '/attachment_data/' in url:
 
-        if '/attachment_data/' in url:
-            if not url.startswith('https'):
-                url = "https://www.gov.uk" + url
+                if not url.startswith('https'):
+                    url = "https://www.gov.uk" + url
 
-            if url.endswith('/preview'):
-                url = url[:-len('/preview')]
+                if url.endswith('/preview'):
+                    url = url[:-len('/preview')]
 
-            row = {}
-            row['page'] = page['page']
-            row['url'] = url
-            row['filename'] = re.sub(r'^.*/', '', url)
-            row['attachment'] = re.sub(r'^.*/attachment_data/file/(\d+).*$', r'\1', url)
-            row['name'] = ' '.join(a.text_content().split())
+                row = {}
+                row['page'] = page['page']
+                row['url'] = url
+                row['filename'] = re.sub(r'^.*/', '', url)
+                row['attachment'] = re.sub(r'^.*/attachment_data/file/(\d+).*$', r'\1', url)
+                row['name'] = ' '.join(a.text_content().split())
 
-            #
-            # cache file
-            #
-            path = 'cache/attachment/%s/%s' % (row['attachment'], row['filename'])
-            if not os.path.isfile(path):
-                directory = os.path.dirname(path)
-                if not os.path.exists(directory):
-                    os.makedirs(directory)
-                print('downloading %s' % path, file=sys.stderr)
-                req = requests.get(row['url'])
-                req.raise_for_status()
-                open(path, 'w').write(req.text)
+                ref = section.xpath('.//span[@class="unique_reference"]')
+                row['ref'] = ' '.join(' '.join([r.text_content() for r in ref]).split())
 
-            row['size'] = os.stat(path).st_size
-            row['mime'] = magic.from_file(path, mime=True)
-            row['magic'] = magic.from_file(path)
+                #
+                # cache file
+                #
+                path = 'cache/attachment/%s/%s' % (row['attachment'], row['filename'])
+                if not os.path.isfile(path):
+                    directory = os.path.dirname(path)
+                    if not os.path.exists(directory):
+                        os.makedirs(directory)
+                    print('downloading %s' % path, file=sys.stderr)
+                    req = requests.get(row['url'])
+                    req.raise_for_status()
+                    open(path, 'w').write(req.text)
 
-            attachments[row['attachment']] = row
+                row['size'] = os.stat(path).st_size
+                row['mime'] = magic.from_file(path, mime=True)
+                row['magic'] = magic.from_file(path)
+
+                attachments[row['attachment']] = row
 
 
 print(sep.join(fields))
