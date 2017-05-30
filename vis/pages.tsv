@@ -3716,7 +3716,7 @@ application-for-a-residence-stamp-non-eea-family-of-croatian-form-cr5	FA077	samp
 application-for-a-safe-manning-document-msf-4227	FA012	sample	0.01	0.01	0.00381556	0.00381556	0.0	0.00002129
 application-for-a-vehicle-registration-certificate	FA101	sample	0.01	0.01	0.04830503	0.04830503	0.07	0.04258331
 application-for-an-integration-loan	FA030	sample	0.01	0.02	0.01878519	0.02925663	0.02	0.00016637
-application-for-asylum-support-form-asf1	GC110	sample	0.01	0.03	0.07254391	0.10250864	0.05	0.00093465
+application-for-asylum-support-form-asf1	FA005	sample	0.01	0.03	0.07254391	0.10250864	0.05	0.00093465
 application-for-continued-registration-with-oisc	FA087	sample	0.01	0.01	0.10864687	0.10864687	0.04	0.00000030
 application-for-fish-pass-approval	FA190	sample	0.01	0.02	0.06294308	0.08990650	0.0	0.00001738
 application-for-mot-authorisation-vt01	FA161	sample	0.01	0.01	0.05469799	0.05469799	0.0	0.00000943

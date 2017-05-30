@@ -6,6 +6,7 @@ import json
 import csv
 import requests
 import lxml.html
+from datetime import datetime
 
 sep = '\t'
 
@@ -29,11 +30,14 @@ for page in csv.DictReader(sys.stdin, delimiter=sep):
               </li>
     """
 
+
     for ol in dom.xpath('//div[@id="full-history"]//ol'):
+        history = []
         for li in ol.xpath('li'):
             row = {}
             row['page'] = page['page']
-            row['timestamp'] = li.xpath('//time/@datetime')[0]
+            row['timestamp'] = li.xpath('time/@datetime')[0]
             row['text'] = ' '.join(li.text_content().split()[3:])
+            history.append(row)
 
             print(sep.join([str(row[field]) for field in fields]))
