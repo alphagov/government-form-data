@@ -31,13 +31,21 @@ for page in csv.DictReader(sys.stdin, delimiter=sep):
     """
 
 
+    history = []
     for ol in dom.xpath('//div[@id="full-history"]//ol'):
-        history = []
         for li in ol.xpath('li'):
-            row = {}
-            row['page'] = page['page']
-            row['timestamp'] = li.xpath('time/@datetime')[0]
-            row['text'] = ' '.join(li.text_content().split()[3:])
-            history.append(row)
+            history.append({
+                'timestamp': li.xpath('time/@datetime')[0],
+                'text': ' '.join(li.text_content().split()[3:]),
+            })
 
-            print(sep.join([str(row[field]) for field in fields]))
+    if len(history) == 0:
+        for span in dom.xpath('//div[@id="history"]//span[@class="published definition"]'):
+            history.append({
+                'timestamp': datetime.strptime(span.text_content(), '%d %B %Y').isoformat() + ".000+00:00",
+                'text': 'Published',
+            })
+
+    for row in history:
+        row['page'] = page['page']
+        print(sep.join([str(row[field]) for field in fields]))
