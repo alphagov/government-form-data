@@ -13,6 +13,7 @@ total = 999999
 
 while start < total:
     resp = requests.get(url=url % (start, count))
+    resp.raise_for_status()
     r = json.loads(resp.text)
 
     for row in r['results']:
