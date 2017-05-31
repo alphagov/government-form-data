@@ -26,27 +26,27 @@ for page in csv.DictReader(sys.stdin, delimiter=sep):
     for section in dom.xpath('//div[@class="attachment-details"]'):
         for a in section.xpath('.//h2[@class="title"]/a'):
             url = a.xpath('@href')[0]
+
+            if not url.startswith('https'):
+                url = "https://www.gov.uk" + url
+
+            if url.endswith('/preview'):
+                url = url[:-len('/preview')]
+
+            row = {}
+            row['page'] = page['page']
+            row['url'] = url
+            row['filename'] = re.sub(r'^.*/', '', url)
+            row['attachment'] = re.sub(r'^.*/attachment_data/file/(\d+).*$', r'\1', url)
+            row['name'] = ' '.join(a.text_content().split())
+
+            ref = section.xpath('.//span[@class="unique_reference"]')
+            row['ref'] = ' '.join(' '.join([r.text_content() for r in ref]).split())
+
+            #
+            # cache file
+            #
             if '/attachment_data/' in url:
-
-                if not url.startswith('https'):
-                    url = "https://www.gov.uk" + url
-
-                if url.endswith('/preview'):
-                    url = url[:-len('/preview')]
-
-                row = {}
-                row['page'] = page['page']
-                row['url'] = url
-                row['filename'] = re.sub(r'^.*/', '', url)
-                row['attachment'] = re.sub(r'^.*/attachment_data/file/(\d+).*$', r'\1', url)
-                row['name'] = ' '.join(a.text_content().split())
-
-                ref = section.xpath('.//span[@class="unique_reference"]')
-                row['ref'] = ' '.join(' '.join([r.text_content() for r in ref]).split())
-
-                #
-                # cache file
-                #
                 path = 'cache/attachment/%s/%s' % (row['attachment'], row['filename'])
                 if not os.path.isfile(path):
                     directory = os.path.dirname(path)
@@ -60,8 +60,12 @@ for page in csv.DictReader(sys.stdin, delimiter=sep):
                 row['size'] = os.stat(path).st_size
                 row['mime'] = magic.from_file(path, mime=True)
                 row['magic'] = magic.from_file(path)
+            else:
+                row['size'] = 0
+                row['mime'] = ''
+                row['magic'] = ''
 
-                attachments[row['attachment']] = row
+            attachments[row['attachment']] = row
 
 
 print(sep.join(fields))
