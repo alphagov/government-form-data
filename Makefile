@@ -32,6 +32,7 @@ server: $(INDEXES)
 #  build target data
 #
 data/organisation.tsv:	bin/organisations.py
+	@mkdir -p cache/page
 	python3 bin/organisations.py > $@
 
 data/page.tsv:	bin/pages.py cache/govuk-pages.jsonl data/slug.tsv
@@ -51,6 +52,7 @@ data/download.tsv:	bin/downloads.py data/attachment.tsv
 #  forms pages from GOV.UK search API
 #
 cache/govuk-pages.jsonl:	bin/govuk-pages.py
+	@mkdir -p cache
 	bin/govuk-pages.py > $@
 
 #
