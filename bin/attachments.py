@@ -54,7 +54,13 @@ for page in csv.DictReader(sys.stdin, delimiter=sep):
                         os.makedirs(directory)
                     print('downloading %s' % path, file=sys.stderr)
                     req = requests.get(row['url'])
-                    req.raise_for_status()
+                    try:
+                        req.raise_for_status()
+                        text = req.text
+                    except requests.exceptions.HTTPError as error:
+                        print(error, file=sys.stderr)
+                        text = ''
+
                     open(path, 'w').write(req.text)
 
                 row['size'] = os.stat(path).st_size

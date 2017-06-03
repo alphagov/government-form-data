@@ -2,42 +2,42 @@
   "children": [
     {
       "attachments": 2,
-      "downloads": 1319,
+      "downloads": 0,
       "name": "Civil Service",
       "pages": 2,
-      "size": 852284,
+      "size": 1469288,
       "updates": 7
     },
     {
       "attachments": 123,
-      "downloads": 5069422,
+      "downloads": 0,
       "name": "Department for Work and Pensions",
       "pages": 43,
-      "size": 33028828,
+      "size": 47777974,
       "updates": 111
     },
     {
       "attachments": 4,
-      "downloads": 5070,
+      "downloads": 0,
       "name": "Food Standards Agency",
       "pages": 4,
-      "size": 961645,
+      "size": 1681808,
       "updates": 4
     },
     {
       "attachments": 101,
-      "downloads": 336325,
+      "downloads": 0,
       "name": "Ofsted",
       "pages": 40,
-      "size": 45794289,
+      "size": 70351732,
       "updates": 65
     },
     {
       "attachments": 60,
-      "downloads": 42438,
+      "downloads": 0,
       "name": "Department of Energy & Climate Change",
       "pages": 50,
-      "size": 17046988,
+      "size": 28918765,
       "updates": 56
     },
     {
@@ -50,575 +50,575 @@
     },
     {
       "attachments": 1,
-      "downloads": 503,
+      "downloads": 0,
       "name": "UK Trade & Investment",
       "pages": 1,
-      "size": 282112,
+      "size": 480487,
       "updates": 1
     },
     {
       "attachments": 5,
-      "downloads": 3052,
+      "downloads": 0,
       "name": "Department for International Trade",
       "pages": 3,
-      "size": 553944,
+      "size": 743399,
       "updates": 8
     },
     {
       "attachments": 49,
-      "downloads": 27851,
+      "downloads": 0,
       "name": "Department for Business, Energy & Industrial Strategy",
       "pages": 36,
-      "size": 14387794,
+      "size": 22655639,
       "updates": 84
     },
     {
       "attachments": 40,
-      "downloads": 167075,
+      "downloads": 0,
       "name": "Department of Health",
       "pages": 12,
-      "size": 16205683,
+      "size": 24122952,
       "updates": 20
     },
     {
-      "attachments": 207,
-      "downloads": 310777,
+      "attachments": 208,
+      "downloads": 0,
       "name": "Foreign & Commonwealth Office",
-      "pages": 156,
-      "size": 35883925,
-      "updates": 208
+      "pages": 157,
+      "size": 54616672,
+      "updates": 209
     },
     {
       "attachments": 17,
-      "downloads": 21266,
+      "downloads": 0,
       "name": "HM Treasury",
       "pages": 8,
-      "size": 3228692,
+      "size": 4940466,
       "updates": 12
     },
     {
       "attachments": 236,
-      "downloads": 766173,
+      "downloads": 0,
       "name": "Home Office",
       "pages": 163,
-      "size": 40743197,
-      "updates": 217
+      "size": 64566598,
+      "updates": 218
     },
     {
       "attachments": 278,
-      "downloads": 575110,
+      "downloads": 0,
       "name": "Ministry of Defence",
       "pages": 76,
-      "size": 95121321,
+      "size": 155102699,
       "updates": 247
     },
     {
       "attachments": 63,
-      "downloads": 345360,
+      "downloads": 0,
       "name": "Ministry of Justice",
       "pages": 55,
-      "size": 21985180,
+      "size": 37587395,
       "updates": 65
     },
     {
       "attachments": 98,
-      "downloads": 639855,
+      "downloads": 0,
       "name": "Cabinet Office",
       "pages": 29,
-      "size": 25669926,
+      "size": 41406324,
       "updates": 72
     },
     {
       "attachments": 1,
-      "downloads": 1557,
+      "downloads": 0,
       "name": "UK Export Finance",
       "pages": 1,
-      "size": 146764,
+      "size": 250270,
       "updates": 1
     },
     {
       "attachments": 1003,
-      "downloads": 20390758,
+      "downloads": 0,
       "name": "HM Revenue & Customs",
       "pages": 893,
-      "size": 249781203,
-      "updates": 1672
+      "size": 348026775,
+      "updates": 1676
     },
     {
       "attachments": 37,
-      "downloads": 519647,
+      "downloads": 0,
       "name": "Department for Business, Innovation & Skills",
       "pages": 28,
-      "size": 8221869,
+      "size": 12453158,
       "updates": 32
     },
     {
       "attachments": 1,
-      "downloads": 587,
+      "downloads": 0,
       "name": "Office for National Statistics",
       "pages": 1,
-      "size": 44544,
+      "size": 49111,
       "updates": 1
     },
     {
       "attachments": 145,
-      "downloads": 326955,
+      "downloads": 0,
       "name": "Department for Communities and Local Government",
       "pages": 49,
-      "size": 76150476,
+      "size": 112712456,
       "updates": 108
     },
     {
       "attachments": 16,
-      "downloads": 23404,
+      "downloads": 0,
       "name": "Department for Culture, Media & Sport",
       "pages": 4,
-      "size": 4488384,
+      "size": 6955632,
       "updates": 12
     },
     {
       "attachments": 9,
-      "downloads": 41616,
+      "downloads": 0,
       "name": "Competition and Markets Authority",
       "pages": 5,
-      "size": 1607791,
+      "size": 2580513,
       "updates": 8
     },
     {
       "attachments": 219,
-      "downloads": 601419,
+      "downloads": 0,
       "name": "Department for Education",
       "pages": 61,
-      "size": 48900438,
+      "size": 76271873,
       "updates": 197
     },
     {
       "attachments": 232,
-      "downloads": 122625,
+      "downloads": 0,
       "name": "HM Land Registry",
       "pages": 117,
-      "size": 32268477,
+      "size": 50610316,
       "updates": 285
     },
     {
-      "attachments": 169,
-      "downloads": 236176,
+      "attachments": 168,
+      "downloads": 0,
       "name": "Department for Environment, Food & Rural Affairs",
       "pages": 102,
-      "size": 45172732,
+      "size": 73352519,
       "updates": 170
     },
     {
       "attachments": 20,
-      "downloads": 37410,
+      "downloads": 0,
       "name": "Department for International Development",
       "pages": 17,
-      "size": 3826283,
+      "size": 5755974,
       "updates": 19
     },
     {
       "attachments": 30,
-      "downloads": 16081,
+      "downloads": 0,
       "name": "Forestry Commission",
       "pages": 17,
-      "size": 11399894,
+      "size": 18589481,
       "updates": 30
     },
     {
       "attachments": 42,
-      "downloads": 67881,
+      "downloads": 0,
       "name": "Department for Transport",
       "pages": 20,
-      "size": 8386144,
+      "size": 11952154,
       "updates": 27
     },
     {
       "attachments": 29,
-      "downloads": 223490,
+      "downloads": 0,
       "name": "The Charity Commission",
       "pages": 12,
-      "size": 9504018,
+      "size": 12319424,
       "updates": 12
     },
     {
       "attachments": 3,
-      "downloads": 2961,
+      "downloads": 0,
       "name": "Welsh Government",
       "pages": 2,
-      "size": 197723,
+      "size": 343141,
       "updates": 3
     },
     {
       "attachments": 1,
-      "downloads": 927,
+      "downloads": 0,
       "name": "Crown Commercial Service",
       "pages": 1,
-      "size": 423965,
+      "size": 759556,
       "updates": 7
     },
     {
       "attachments": 290,
-      "downloads": 158389,
+      "downloads": 0,
       "name": "Animal and Plant Health Agency",
       "pages": 106,
-      "size": 150073086,
+      "size": 261243359,
       "updates": 211
     },
     {
       "attachments": 30,
-      "downloads": 203068,
+      "downloads": 0,
       "name": "Highways England",
       "pages": 7,
-      "size": 7310099,
+      "size": 12483332,
       "updates": 14
     },
     {
       "attachments": 11,
-      "downloads": 234,
+      "downloads": 0,
       "name": "Her Majesty\u2019s Prison and Probation Service",
       "pages": 5,
-      "size": 2864359,
+      "size": 4443491,
       "updates": 10
     },
     {
-      "attachments": 214,
-      "downloads": 615866,
+      "attachments": 212,
+      "downloads": 0,
       "name": "Environment Agency",
       "pages": 131,
-      "size": 82406437,
-      "updates": 229
+      "size": 132773720,
+      "updates": 230
     },
     {
       "attachments": 32,
-      "downloads": 64967,
+      "downloads": 0,
       "name": "Education Funding Agency",
       "pages": 16,
-      "size": 17117264,
+      "size": 29371474,
       "updates": 41
     },
     {
       "attachments": 524,
-      "downloads": 3826390,
+      "downloads": 0,
       "name": "Companies House",
       "pages": 450,
-      "size": 176111025,
+      "size": 283160674,
       "updates": 684
     },
     {
       "attachments": 136,
-      "downloads": 144047,
+      "downloads": 0,
       "name": "The Insolvency Service",
       "pages": 86,
-      "size": 12901202,
+      "size": 16650415,
       "updates": 92
     },
     {
       "attachments": 4,
-      "downloads": 36091,
+      "downloads": 0,
       "name": "HM Prison Service",
       "pages": 1,
-      "size": 1377983,
+      "size": 2388831,
       "updates": 3
     },
     {
       "attachments": 212,
-      "downloads": 287482,
+      "downloads": 0,
       "name": "Intellectual Property Office",
       "pages": 102,
-      "size": 52554421,
+      "size": 85326531,
       "updates": 128
     },
     {
       "attachments": 48,
-      "downloads": 35847,
+      "downloads": 0,
       "name": "Planning Inspectorate",
       "pages": 23,
-      "size": 10017505,
+      "size": 16141402,
       "updates": 40
     },
     {
       "attachments": 168,
-      "downloads": 352325,
+      "downloads": 0,
       "name": "Public Health England",
       "pages": 121,
-      "size": 51535272,
-      "updates": 206
+      "size": 82440514,
+      "updates": 208
     },
     {
       "attachments": 17,
-      "downloads": 14473,
+      "downloads": 0,
       "name": "Centre for Environment, Fisheries and Aquaculture Science",
       "pages": 17,
-      "size": 3496394,
+      "size": 5689654,
       "updates": 27
     },
     {
       "attachments": 5,
-      "downloads": 22519,
+      "downloads": 0,
       "name": "National College for Teaching and Leadership",
       "pages": 4,
-      "size": 636980,
+      "size": 1130362,
       "updates": 12
     },
     {
       "attachments": 225,
-      "downloads": 1107109,
+      "downloads": 0,
       "name": "Legal Aid Agency",
       "pages": 102,
-      "size": 40231484,
+      "size": 53457726,
       "updates": 198
     },
     {
       "attachments": 126,
-      "downloads": 2476840,
+      "downloads": 0,
       "name": "Driver and Vehicle Standards Agency",
       "pages": 103,
-      "size": 64316640,
+      "size": 108966608,
       "updates": 166
     },
     {
       "attachments": 47,
-      "downloads": 30566,
+      "downloads": 0,
       "name": "Rural Payments Agency",
       "pages": 26,
-      "size": 24381286,
+      "size": 38011502,
       "updates": 46
     },
     {
       "attachments": 13,
-      "downloads": 5305,
+      "downloads": 0,
       "name": "Veterinary Medicines Directorate",
       "pages": 9,
-      "size": 6445163,
-      "updates": 15
+      "size": 11424284,
+      "updates": 16
     },
     {
       "attachments": 1,
-      "downloads": 921,
+      "downloads": 0,
       "name": "FCO Services",
       "pages": 1,
-      "size": 459264,
+      "size": 702061,
       "updates": 1
     },
     {
       "attachments": 40,
-      "downloads": 78991,
+      "downloads": 0,
       "name": "Medicines and Healthcare products Regulatory Agency",
       "pages": 14,
-      "size": 17628863,
+      "size": 27223430,
       "updates": 24
     },
     {
       "attachments": 75,
-      "downloads": 1406536,
+      "downloads": 0,
       "name": "HM Passport Office",
       "pages": 40,
-      "size": 14824351,
+      "size": 23952804,
       "updates": 64
     },
     {
       "attachments": 4,
-      "downloads": 36091,
+      "downloads": 0,
       "name": "National Offender Management Service",
       "pages": 1,
-      "size": 1377983,
+      "size": 2388831,
       "updates": 3
     },
     {
       "attachments": 71,
-      "downloads": 450358,
+      "downloads": 0,
       "name": "Office of the Public Guardian",
       "pages": 18,
-      "size": 30836774,
+      "size": 52480170,
       "updates": 113
     },
     {
       "attachments": 4,
-      "downloads": 88738,
+      "downloads": 0,
       "name": "HM Courts & Tribunals Service",
       "pages": 2,
-      "size": 522426,
+      "size": 768245,
       "updates": 3
     },
     {
       "attachments": 78,
-      "downloads": 5961090,
+      "downloads": 0,
       "name": "Driver and Vehicle Licensing Agency",
       "pages": 76,
-      "size": 57969890,
-      "updates": 336
+      "size": 107640947,
+      "updates": 337
     },
     {
       "attachments": 89,
-      "downloads": 449143,
+      "downloads": 0,
       "name": "Maritime and Coastguard Agency",
       "pages": 80,
-      "size": 34418437,
-      "updates": 138
+      "size": 52930924,
+      "updates": 140
     },
     {
       "attachments": 7,
-      "downloads": 3049,
+      "downloads": 0,
       "name": "Vehicle Certification Agency",
       "pages": 7,
-      "size": 6222576,
+      "size": 9690425,
       "updates": 11
     },
     {
       "attachments": 18,
-      "downloads": 439116,
+      "downloads": 0,
       "name": "Skills Funding Agency",
       "pages": 10,
-      "size": 4759127,
+      "size": 7562883,
       "updates": 41
     },
     {
       "attachments": 76,
-      "downloads": 71354,
+      "downloads": 0,
       "name": "Valuation Office Agency",
       "pages": 39,
-      "size": 26326173,
+      "size": 38740624,
       "updates": 74
     },
     {
       "attachments": 7,
-      "downloads": 1485,
+      "downloads": 0,
       "name": "Education and Skills Funding Agency",
       "pages": 3,
-      "size": 5430667,
+      "size": 5613018,
       "updates": 8
     },
     {
       "attachments": 6,
-      "downloads": 1789,
+      "downloads": 0,
       "name": "Judicial Appointments and Conduct Ombudsman",
       "pages": 2,
-      "size": 7998900,
+      "size": 10715710,
       "updates": 6
     },
     {
       "attachments": 4,
-      "downloads": 2071,
+      "downloads": 0,
       "name": "Office of the Schools Adjudicator",
       "pages": 2,
-      "size": 333816,
+      "size": 380067,
       "updates": 10
     },
     {
       "attachments": 2,
-      "downloads": 1319,
+      "downloads": 0,
       "name": "Government Economic Service",
       "pages": 2,
-      "size": 852284,
+      "size": 1469288,
       "updates": 7
     },
     {
       "attachments": 1,
-      "downloads": 587,
+      "downloads": 0,
       "name": "Office for Disability Issues",
       "pages": 1,
-      "size": 44544,
+      "size": 49111,
       "updates": 1
     },
     {
       "attachments": 26,
-      "downloads": 12702,
+      "downloads": 0,
       "name": "Military Aviation Authority",
       "pages": 7,
-      "size": 17868813,
+      "size": 31898918,
       "updates": 27
     },
     {
       "attachments": 28,
-      "downloads": 194884,
+      "downloads": 0,
       "name": "Veterans UK",
       "pages": 12,
-      "size": 26746710,
+      "size": 44907478,
       "updates": 62
     },
     {
       "attachments": 7,
-      "downloads": 5568,
+      "downloads": 0,
       "name": "Infrastructure and Projects Authority",
       "pages": 2,
-      "size": 1438153,
+      "size": 2062738,
       "updates": 4
     },
     {
       "attachments": 25,
-      "downloads": 66831,
+      "downloads": 0,
       "name": "Defence Safety Authority",
       "pages": 1,
-      "size": 3846144,
+      "size": 4802283,
       "updates": 11
     },
     {
       "attachments": 1,
-      "downloads": 769,
+      "downloads": 0,
       "name": "Pubs Code Adjudicator",
       "pages": 2,
-      "size": 34580,
+      "size": 59007,
       "updates": 2
     },
     {
       "attachments": 5,
-      "downloads": 6782,
+      "downloads": 0,
       "name": "Rail Accident Investigation Branch",
       "pages": 2,
-      "size": 1231686,
+      "size": 2049438,
       "updates": 2
     },
     {
       "attachments": 1,
-      "downloads": 546,
+      "downloads": 0,
       "name": "British Council",
       "pages": 1,
-      "size": 61485,
+      "size": 108586,
       "updates": 1
     },
     {
       "attachments": 13,
-      "downloads": 35551,
+      "downloads": 0,
       "name": "Official Solicitor and Public Trustee",
       "pages": 9,
-      "size": 1982912,
+      "size": 2933723,
       "updates": 14
     },
     {
       "attachments": 1,
-      "downloads": 1821,
+      "downloads": 0,
       "name": "UK Green Investment Bank",
       "pages": 1,
-      "size": 246954,
+      "size": 433124,
       "updates": 1
     },
     {
       "attachments": 1,
-      "downloads": 875,
+      "downloads": 0,
       "name": "Defence Academy of the United Kingdom",
       "pages": 1,
-      "size": 62464,
+      "size": 73050,
       "updates": 4
     },
     {
       "attachments": 5,
-      "downloads": 25433,
+      "downloads": 0,
       "name": "Defence Infrastructure Organisation",
       "pages": 2,
-      "size": 379080,
+      "size": 568858,
       "updates": 9
     },
     {
       "attachments": 4,
-      "downloads": 47423,
+      "downloads": 0,
       "name": "National security and intelligence",
       "pages": 1,
-      "size": 2720263,
+      "size": 3705912,
       "updates": 1
     },
     {
       "attachments": 4,
-      "downloads": 1179,
+      "downloads": 0,
       "name": "Office for Low Emission Vehicles",
       "pages": 4,
       "size": 1633961,
@@ -626,7 +626,7 @@
     },
     {
       "attachments": 5,
-      "downloads": 52821,
+      "downloads": 0,
       "name": "Advisory Committee on Clinical Excellence Awards",
       "pages": 1,
       "size": 378001,
@@ -634,82 +634,82 @@
     },
     {
       "attachments": 8,
-      "downloads": 110094,
+      "downloads": 0,
       "name": "Border Force",
       "pages": 3,
-      "size": 2383879,
+      "size": 3707827,
       "updates": 15
     },
     {
       "attachments": 3,
-      "downloads": 2198,
+      "downloads": 0,
       "name": "Deputy Prime Minister's Office",
       "pages": 3,
-      "size": 66714,
+      "size": 103978,
       "updates": 5
     },
     {
       "attachments": 1,
-      "downloads": 1734,
+      "downloads": 0,
       "name": "Health and Social Care Information Centre",
       "pages": 1,
-      "size": 180738,
+      "size": 326057,
       "updates": 1
     },
     {
       "attachments": 2,
-      "downloads": 1621,
+      "downloads": 0,
       "name": "Biometrics Commissioner",
       "pages": 2,
-      "size": 1483707,
+      "size": 2607776,
       "updates": 2
     },
     {
       "attachments": 2,
-      "downloads": 2100,
+      "downloads": 0,
       "name": "Groceries Code Adjudicator",
       "pages": 2,
-      "size": 349963,
+      "size": 620450,
       "updates": 2
     },
     {
       "attachments": 3,
-      "downloads": 5378,
+      "downloads": 0,
       "name": "Surveillance Camera Commissioner",
       "pages": 1,
-      "size": 891961,
+      "size": 1030886,
       "updates": 3
     },
     {
       "attachments": 24,
-      "downloads": 139947,
+      "downloads": 0,
       "name": "Office of the Regulator of Community Interest Companies",
       "pages": 6,
-      "size": 1615283,
+      "size": 1882431,
       "updates": 12
     },
     {
       "attachments": 224,
-      "downloads": 10847096,
+      "downloads": 0,
       "name": "UK Visas and Immigration",
       "pages": 119,
-      "size": 65722033,
-      "updates": 590
+      "size": 101647383,
+      "updates": 591
     },
     {
       "attachments": 3,
-      "downloads": 2526,
+      "downloads": 0,
       "name": "Government Office for Science",
       "pages": 1,
-      "size": 443244,
+      "size": 779514,
       "updates": 1
     },
     {
       "attachments": 5,
-      "downloads": 3052,
+      "downloads": 0,
       "name": "Export Control Organisation",
       "pages": 3,
-      "size": 553944,
+      "size": 743399,
       "updates": 8
     },
     {
@@ -722,23 +722,23 @@
     },
     {
       "attachments": 1,
-      "downloads": 663,
+      "downloads": 0,
       "name": "Better Regulation Delivery Office",
       "pages": 1,
-      "size": 61807,
+      "size": 105154,
       "updates": 1
     },
     {
       "attachments": 23,
-      "downloads": 12773,
+      "downloads": 0,
       "name": "Company Names Tribunal",
       "pages": 8,
-      "size": 4881548,
+      "size": 8423860,
       "updates": 12
     },
     {
       "attachments": 1,
-      "downloads": 189,
+      "downloads": 0,
       "name": "British Hallmarking Council",
       "pages": 1,
       "size": 92797,
@@ -746,26 +746,26 @@
     },
     {
       "attachments": 48,
-      "downloads": 17673,
+      "downloads": 0,
       "name": "Central Arbitration Committee",
       "pages": 17,
-      "size": 7048587,
+      "size": 10127407,
       "updates": 17
     },
     {
       "attachments": 8,
-      "downloads": 12733,
+      "downloads": 0,
       "name": "Homes and Communities Agency",
       "pages": 2,
-      "size": 708896,
+      "size": 988170,
       "updates": 2
     },
     {
       "attachments": 4,
-      "downloads": 4768,
+      "downloads": 0,
       "name": "Coal Authority",
       "pages": 4,
-      "size": 1279313,
+      "size": 2269639,
       "updates": 6
     },
     {
@@ -778,10 +778,10 @@
     },
     {
       "attachments": 246,
-      "downloads": 282581,
+      "downloads": 0,
       "name": "Natural England",
       "pages": 156,
-      "size": 65304959,
+      "size": 100047905,
       "updates": 365
     },
     {
@@ -794,106 +794,106 @@
     },
     {
       "attachments": 2,
-      "downloads": 3804,
+      "downloads": 0,
       "name": "Monitor",
       "pages": 2,
-      "size": 123800,
+      "size": 185302,
       "updates": 2
     },
     {
       "attachments": 23,
-      "downloads": 6927,
+      "downloads": 0,
       "name": "Office of the Immigration Services Commissioner",
       "pages": 10,
-      "size": 30398781,
+      "size": 48597895,
       "updates": 32
     },
     {
       "attachments": 15,
-      "downloads": 7754,
+      "downloads": 0,
       "name": "Advisory Council on the Misuse of Drugs",
       "pages": 11,
-      "size": 899405,
+      "size": 1367064,
       "updates": 12
     },
     {
       "attachments": 3,
-      "downloads": 1072,
+      "downloads": 0,
       "name": "National DNA Database Ethics Group",
       "pages": 1,
-      "size": 594814,
+      "size": 975492,
       "updates": 1
     },
     {
       "attachments": 7,
-      "downloads": 5026,
+      "downloads": 0,
       "name": "Criminal Injuries Compensation Authority",
       "pages": 4,
-      "size": 8224088,
+      "size": 14409232,
       "updates": 5
     },
     {
       "attachments": 18,
-      "downloads": 21350,
+      "downloads": 0,
       "name": "Youth Justice Board for England and Wales",
       "pages": 9,
-      "size": 3243662,
+      "size": 4756960,
       "updates": 9
     },
     {
       "attachments": 1,
-      "downloads": 272,
+      "downloads": 0,
       "name": "Family Procedure Rule Committee",
       "pages": 1,
-      "size": 75776,
+      "size": 121324,
       "updates": 1
     },
     {
       "attachments": 48,
-      "downloads": 823752,
+      "downloads": 0,
       "name": "Traffic Commissioners for Great Britain",
       "pages": 22,
-      "size": 29568851,
+      "size": 51450025,
       "updates": 55
     },
     {
       "attachments": 9,
-      "downloads": 385406,
+      "downloads": 0,
       "name": "Disclosure and Barring Service",
       "pages": 5,
-      "size": 3931555,
+      "size": 6683175,
       "updates": 13
     },
     {
       "attachments": 2,
-      "downloads": 848,
+      "downloads": 0,
       "name": "Social Mobility and Child Poverty Commission",
       "pages": 1,
-      "size": 240099,
+      "size": 422243,
       "updates": 1
     },
     {
       "attachments": 5,
-      "downloads": 774,
+      "downloads": 0,
       "name": "Administration of Radioactive Substances Advisory Committee",
       "pages": 1,
-      "size": 194753,
+      "size": 335532,
       "updates": 3
     },
     {
       "attachments": 3,
-      "downloads": 1153,
+      "downloads": 0,
       "name": "Animals in Science Committee",
       "pages": 1,
-      "size": 866717,
+      "size": 1865255,
       "updates": 1
     },
     {
       "attachments": 29,
-      "downloads": 18434,
+      "downloads": 0,
       "name": "Marine Management Organisation",
       "pages": 16,
-      "size": 6032236,
+      "size": 10123163,
       "updates": 23
     },
     {
