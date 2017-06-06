@@ -7,12 +7,13 @@ import csv
 import magic
 import lxml.html
 import requests
+import shutil
 
 #
 #  make attachements.tsv from page.tsv and cached files
 #
 
-fields = ['attachment', 'filename', 'page', 'name', 'url', 'ref', 'size', 'mime', 'magic']
+fields = ['attachment', 'filename', 'page', 'name', 'url', 'ref', 'pages', 'size', 'mime', 'magic']
 sep = '\t'
 
 attachments = {}
@@ -42,6 +43,7 @@ for page in csv.DictReader(sys.stdin, delimiter=sep):
 
                 ref = section.xpath('.//span[@class="unique_reference"]')
                 row['ref'] = ' '.join(' '.join([r.text_content() for r in ref]).split())
+                row['pages'] = ''
 
                 #
                 # cache file
@@ -53,15 +55,16 @@ for page in csv.DictReader(sys.stdin, delimiter=sep):
                     if not os.path.exists(directory):
                         os.makedirs(directory)
                     print('downloading %s' % path, file=sys.stderr)
-                    req = requests.get(row['url'])
+                    req = requests.get(row['url'], stream=True)
                     try:
                         req.raise_for_status()
-                        text = req.text
+                        with open(path, 'wb') as f:
+                            req.raw.decode_content = True
+                            shutil.copyfileobj(req.raw, f)
                     except requests.exceptions.HTTPError as error:
                         print(error, file=sys.stderr)
-                        text = ''
+                        open(path, "w").write('')
 
-                    open(path, 'w').write(req.text)
 
                 row['size'] = os.stat(path).st_size
                 row['mime'] = magic.from_file(path, mime=True)
