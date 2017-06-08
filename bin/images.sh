@@ -10,11 +10,19 @@ do
   doc="$dir/document.$suffix"
   pdf="$dir/document.pdf"
 
+  if [ -d "$dir" ]; then
+    continue
+  fi
+
   mkdir -p "$dir"
 
   case "$suffix" in
   pdf)
     ln -f "$path" "$pdf"
+    ;;
+
+  zip)
+    continue
     ;;
 
   *)

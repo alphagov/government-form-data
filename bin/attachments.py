@@ -13,7 +13,7 @@ import shutil
 #  make attachements.tsv from page.tsv and cached files
 #
 
-fields = ['attachment', 'filename', 'page', 'name', 'url', 'ref', 'pages', 'size', 'mime', 'magic']
+fields = ['attachment', 'filename', 'page', 'name', 'url', 'ref', 'size', 'mime', 'magic']
 sep = '\t'
 
 attachments = {}
@@ -43,7 +43,6 @@ for page in csv.DictReader(sys.stdin, delimiter=sep):
 
                 ref = section.xpath('.//span[@class="unique_reference"]')
                 row['ref'] = ' '.join(' '.join([r.text_content() for r in ref]).split())
-                row['pages'] = ''
 
                 #
                 # cache file
