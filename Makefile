@@ -29,6 +29,11 @@ server: $(INDEXES)
 	python3 -m http.server
 
 #
+#  upload extracted document text and images to s3
+#
+s3cmd sync documents  s3://government-form-data/documents
+
+#
 #  build target data
 #
 data/organisation.tsv:	bin/organisations.py
@@ -63,6 +68,14 @@ vis/pages.tsv:	$(DATA) vis/pages.py
 
 vis/orgs.json:	$(DATA) vis/orgs.py
 	python3 vis/orgs.py > $@
+
+#
+# tika
+#
+init::	cache/tika.jar
+
+cache/tika.jar:
+	curl http://mirror.ox.ac.uk/sites/rsync.apache.org/tika/tika-app-1.15.jar > $@
 
 #
 #  python
