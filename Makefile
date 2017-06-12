@@ -11,7 +11,8 @@ TARGET_DATA=\
 	data/history.tsv\
 	data/organisation.tsv\
 	data/download.tsv\
-	data/attachment.tsv
+	data/attachment.tsv\
+	data/attachment-metadata.tsv
 
 DATA=\
 	$(SOURCE_DATA) \
@@ -60,6 +61,9 @@ data/history.tsv:	bin/history.py data/page.tsv
 
 data/download.tsv:	bin/downloads.py data/attachment.tsv
 	zcat cache/downloads.gz | python3 bin/downloads.py > $@
+
+data/attachment-metadata.tsv:	bin/metadata.py data/attachment.tsv
+	python3 bin/metadata.py > $@
 
 #
 #  forms pages from GOV.UK search API
