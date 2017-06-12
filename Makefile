@@ -21,7 +21,15 @@ DATA=\
 # data made for visualisations
 INDEXES=\
 	vis/orgs.json\
-	vis/pages.tsv
+	vis/pages.tsv\
+	vis/words.tsv\
+	vis/ngrams/2.tsv\
+	vis/ngrams/3.tsv\
+	vis/ngrams/4.tsv\
+	vis/ngrams/8.tsv\
+	vis/ngrams/16.tsv\
+	vis/ngrams/32.tsv\
+	vis/ngrams/256.tsv
 
 all: $(DATA) $(INDEXES)
 
@@ -68,6 +76,41 @@ vis/pages.tsv:	$(DATA) vis/pages.py
 
 vis/orgs.json:	$(DATA) vis/orgs.py
 	python3 vis/orgs.py > $@
+
+vis/ngrams/2.tsv:	bin/ngrams.py
+	@mkdir -p vis/ngrams
+	bin/ngrams.py 2 > $@
+
+#
+#  text analysis
+#
+vis/words.tsv:	bin/wordcount.py
+	cat documents/attachment/*/document.txt | bin/wordcount.py > $@
+
+vis/ngrams/3.tsv:	bin/ngrams.py
+	@mkdir -p vis/ngrams
+	bin/ngrams.py 3 > $@
+
+vis/ngrams/4.tsv:	bin/ngrams.py
+	@mkdir -p vis/ngrams
+	bin/ngrams.py 4 > $@
+
+vis/ngrams/8.tsv:	bin/ngrams.py
+	@mkdir -p vis/ngrams
+	bin/ngrams.py 8 > $@
+
+vis/ngrams/16.tsv:	bin/ngrams.py
+	@mkdir -p vis/ngrams
+	bin/ngrams.py 16 > $@
+
+vis/ngrams/32.tsv:	bin/ngrams.py
+	@mkdir -p vis/ngrams
+	bin/ngrams.py 32 > $@
+
+vis/ngrams/256.tsv:	bin/ngrams.py
+	@mkdir -p vis/ngrams
+	bin/ngrams.py 256 5 > $@
+
 
 #
 # tika
