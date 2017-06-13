@@ -40,7 +40,13 @@ server: $(INDEXES)
 #
 #  upload extracted document text and images to s3
 #
-s3cmd sync documents  s3://government-form-data/documents
+S3DOCUMENTS=s3://government-form/documents
+DOCUMENTS=./documents
+
+s3sync:
+	aws s3 sync --exclude "*" --include "*.txt" --content-type="text/plain;charset=utf8" --metadata-directive="REPLACE" --acl public-read $(DOCUMENTS) $(S3DOCUMENTS)
+	aws s3 sync --exclude "*" --include "*.json" --acl public-read $(DOCUMENTS) $(S3DOCUMENTS)
+	aws s3 sync --exclude "*" --include "*.png" --acl public-read $(DOCUMENTS) $(S3DOCUMENTS)
 
 #
 #  build target data

@@ -63,6 +63,15 @@ do
 
     if java -jar cache/tika.jar -t "$path" > "$txt" 2> "$dir/tika-txt.err" ; then
       rm $dir/tika-txt.err
+      tmp=/tmp/tika.$$
+
+      # reduce blanks ..
+      sed \
+        -e 's/[[:space:]]*$//'\
+        -e '/^$/N;/^\n$/D' \
+        < "$txt" > "$tmp"
+
+      mv "$tmp" "$txt"
     fi
   fi
 done
