@@ -16,9 +16,6 @@ def env(name):
 
 
 if 'ES_HOST' in os.environ:
-    REGION=env('REGION')
-    HOST=env('HOST')
-
     awsauth = AWS4Auth(env('ACCESS_KEY'), env('SECRET_KEY'), env('REGION'), 'es')
     es = Elasticsearch(
         hosts=[{'host': env('HOST'), 'port': 443}],
@@ -29,6 +26,7 @@ if 'ES_HOST' in os.environ:
     )
 else:
     es = Elasticsearch()
+
 
 metadata = {}
 
