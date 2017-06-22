@@ -14,6 +14,14 @@ fields = ['attachment', 'created', 'modified', 'page-count']
 
 attachments = {}
 
+
+def ts(s):
+    if s[-1:] == 'Z':
+        return s
+    return s + 'Z'
+
+
+
 for row in csv.DictReader(open("data/attachment.tsv"), delimiter=sep):
     attachment = row['attachment']
     path = "documents/attachment/%s/document.json" % attachment
@@ -21,8 +29,8 @@ for row in csv.DictReader(open("data/attachment.tsv"), delimiter=sep):
     if os.path.isfile(path) and os.path.getsize(path) > 0:
         meta = json.load(open(path))
 
-        row['created'] = meta.get('Creation-Date', '')
-        row['modified'] = meta.get('Last-Modified', '')
+        row['created'] = ts(meta.get('Creation-Date', ''))
+        row['modified'] = ts(meta.get('Last-Modified', ''))
         row['page-count'] = meta.get('xmpTPg:NPages', '')
 
         attachments[attachment] = row
