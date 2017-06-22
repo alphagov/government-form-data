@@ -14,6 +14,9 @@ TARGET_DATA=\
 	data/attachment.tsv\
 	data/attachment-metadata.tsv
 
+TAGS=\
+	tags/attachment-task-tags.tsv
+
 DATA=\
 	$(SOURCE_DATA) \
 	$(TARGET_DATA)
@@ -32,7 +35,7 @@ INDEXES=\
 	vis/ngrams/32.tsv\
 	vis/ngrams/256.tsv
 
-all: $(DATA) $(INDEXES)
+all: $(DATA) $(INDEXES) $(TAGS)
 
 server: $(INDEXES)
 	python3 -m http.server 8001
@@ -70,6 +73,12 @@ data/download.tsv:	bin/downloads.py data/attachment.tsv
 
 data/attachment-metadata.tsv:	bin/metadata.py data/attachment.tsv
 	python3 bin/metadata.py > $@
+
+#
+#  auto-generated tags
+#
+tags/attachment-task-tags.tsv:	bin/attachment-task-tags.py data/attachment.tsv data/task.tsv
+	python3 bin/attachment-task-tags.py > $@
 
 #
 #  forms pages from GOV.UK search API
