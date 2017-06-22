@@ -35,7 +35,7 @@ INDEXES=\
 all: $(DATA) $(INDEXES)
 
 server: $(INDEXES)
-	python3 -m http.server
+	python3 -m http.server 8001
 
 #
 #  upload extracted document text and images to s3
