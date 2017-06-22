@@ -18,3 +18,6 @@ for row in csv.DictReader(open('data/attachment.tsv'), delimiter=sep):
     if row['page'] in pages:
         row['tag'] = pages[row['page']]
         print(sep.join([row[field] for field in fields]))
+
+        row['tag'] = 'Form Analysis'
+        print(sep.join([row[field] for field in fields]))
