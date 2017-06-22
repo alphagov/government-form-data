@@ -78,6 +78,10 @@ do
       rm $dir/tika-txt.err $tmp
     else
       echo "$attachment: tika failed for $path"
+      if [ -s $pdf ] ; then
+        echo "extracting text from $pdf"
+        pdftotext "$pdf" | python3 bin/blanks.py > "$txt"
+      fi
     fi
   fi
 done
