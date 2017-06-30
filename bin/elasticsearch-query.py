@@ -2,6 +2,7 @@
 
 import os
 import csv
+from pprint import pprint
 from datetime import datetime
 from elasticsearch import Elasticsearch, RequestsHttpConnection
 from requests_aws4auth import AWS4Auth
@@ -30,7 +31,29 @@ if 'ES_HOST' in os.environ:
 else:
     es = Elasticsearch()
 
-res = es.search(index="form-explorer", body={"query": {"match_all": {}}})
-print("Got %d Hits:" % res['hits']['total'])
-for hit in res['hits']['hits']:
-    print("%s" % hit['_id'])
+query = "dormice"
+
+res = es.search(index="form-explorer", body={
+    "from": 0,
+    "size": 10,
+    "_source": {
+         "excludes": ["*"],
+         "includes": ["attachment"]
+    },
+    "query": {
+        "query_string": {
+            "default_field": "text",
+            "query": query
+        },
+    },
+    "highlight" : {
+        "fields" : {
+             "text" : {
+                 "fragment_size": 150,
+                 "number_of_fragments" : 1
+            }
+        }
+    }
+})
+
+pprint(res)

@@ -5,3 +5,5 @@ python-magic==0.4.13
 requests==2.14.2
 elasticsearch==5.4.0
 nltk==3.2.4
+requests-aws4auth==0.9
+Pillow==4.1.1
