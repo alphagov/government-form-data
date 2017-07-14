@@ -21,6 +21,7 @@ do
   pdf="$dir/document.pdf"
   json="$dir/document.json"
   txt="$dir/document.txt"
+  valid="$dir/verapdf.xml"
 
   mkdir -p "$dir"
 
@@ -83,5 +84,14 @@ do
         pdftotext "$pdf" | python3 bin/blanks.py > "$txt"
       fi
     fi
+  fi
+
+  if [ ! -f "$valid" ] ; then
+    case "$suffix" in
+    pdf)
+      echo "$attachment: verapdf"
+      verapdf "$path" > "$valid"
+      ;;
+   esac
   fi
 done
