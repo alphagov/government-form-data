@@ -14,12 +14,14 @@ TARGET_DATA=\
 	data/attachment.tsv\
 	data/attachment-metadata.tsv
 
-TAGS=\
-	tags/attachment-task-tags.tsv
+MANAGED_DATA=\
+	data/tag.tsv\
+	data/snippet.tsv
 
 DATA=\
 	$(SOURCE_DATA) \
-	$(TARGET_DATA)
+	$(TARGET_DATA) \
+	$(MANAGED_DATA)
 
 
 # data made for visualisations
@@ -79,6 +81,15 @@ data/attachment-metadata.tsv:	bin/metadata.py data/attachment.tsv
 #
 tags/attachment-task-tags.tsv:	bin/attachment-task-tags.py data/attachment.tsv data/task.tsv
 	python3 bin/attachment-task-tags.py > $@
+
+#
+#  data managed by the application
+#
+data/tag.tsv:
+	curl https://government-form-explorer.cloudapps.digital/attachments/tags.tsv > $@
+
+data/snippet.tsv:
+	curl https://government-form-explorer.cloudapps.digital/snippets.tsv > $@
 
 #
 #  forms pages from GOV.UK search API
