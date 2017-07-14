@@ -130,14 +130,20 @@ vis/ngrams/256.tsv:	bin/ngrams.py
 	@mkdir -p vis/ngrams
 	bin/ngrams.py 256 5 > $@
 
-
 #
-# tika
+#  Apache tika
 #
 init::	cache/tika.jar
 
 cache/tika.jar:
 	curl http://mirror.ox.ac.uk/sites/rsync.apache.org/tika/tika-app-1.15.jar > $@
+
+#
+#  VeraPDF
+#  http://verapdf.org/software/
+#
+#  install by hand, for now ..
+
 
 #
 #  python
