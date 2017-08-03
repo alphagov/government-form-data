@@ -12,7 +12,8 @@ TARGET_DATA=\
 	data/organisation.tsv\
 	data/download.tsv\
 	data/attachment.tsv\
-	data/attachment-metadata.tsv
+	data/attachment-metadata.tsv\
+	data/colours.tsv
 
 MANAGED_DATA=\
 	data/tag.tsv\
@@ -75,6 +76,9 @@ data/download.tsv:	bin/downloads.py data/attachment.tsv
 
 data/attachment-metadata.tsv:	bin/metadata.py data/attachment.tsv
 	python3 bin/metadata.py > $@
+
+data/colours.tsv:
+	bin/colours.sh  > $@
 
 #
 #  auto-generated tags
