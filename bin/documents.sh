@@ -90,7 +90,7 @@ do
     case "$suffix" in
     pdf)
       echo "$attachment: verapdf"
-      verapdf "$path" > "$valid"
+      verapdf "$path" > "$valid" || rm "$valid"
       ;;
    esac
   fi
