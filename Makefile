@@ -111,15 +111,18 @@ vis/pages.tsv:	$(DATA) vis/pages.py
 vis/orgs.json:	$(DATA) vis/orgs.py
 	python3 vis/orgs.py > $@
 
-vis/ngrams/2.tsv:	bin/ngrams.py
-	@mkdir -p vis/ngrams
-	bin/ngrams.py 2 > $@
+vis/colours.html:	$(DATA) vis/colours.py
+	python3 vis/colours.py > $@
 
 #
 #  text analysis
 #
 vis/words.tsv:	bin/wordcount.py
 	cat documents/attachment/*/document.txt | bin/wordcount.py > $@
+
+vis/ngrams/2.tsv:	bin/ngrams.py
+	@mkdir -p vis/ngrams
+	bin/ngrams.py 2 > $@
 
 vis/ngrams/3.tsv:	bin/ngrams.py
 	@mkdir -p vis/ngrams
